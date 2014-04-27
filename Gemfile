@@ -38,3 +38,23 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'restforce', :git => 'git@github.com:malavbhavsar/restforce.git', :branch => 'patch-1'
+# Use omniauth for handlling OAuth with Salesforce
+gem 'omniauth'
+# Add omniauth policy for saleforce
+gem 'omniauth-salesforce'
+# Print pretty
+gem 'awesome_print'
+# Development only gems
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+# Add faye for pub/sub
+gem 'faye'
+# Running app on concurrent server
+gem 'private_pub'
+
+gem 'puma'
+
+gem 'thin'
