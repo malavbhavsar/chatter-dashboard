@@ -1,4 +1,24 @@
 GIT
+  remote: git@github.com:faye/faye.git
+  revision: 0ee53c31b1e0ac9ca8217f48aa5f7613effa4bc9
+  specs:
+    faye (1.0.1)
+      cookiejar (>= 0.3.0)
+      em-http-request (>= 0.3.0)
+      eventmachine (>= 0.12.0)
+      faye-websocket (>= 0.7.0)
+      multi_json (>= 1.0.0)
+      rack (>= 1.0.0)
+      websocket-driver (>= 0.3.0)
+
+GIT
+  remote: git@github.com:malavbhavsar/private_pub.git
+  revision: 3c6413c43c0c8484aa6124b361e556673f9d9cc9
+  specs:
+    private_pub (1.0.3)
+      faye
+
+GIT
   remote: git@github.com:malavbhavsar/restforce.git
   revision: 0b5d86489321d932951528251baa04e9d9ee75fa
   branch: patch-1
@@ -73,14 +93,6 @@ GEM
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
-    faye (1.0.1)
-      cookiejar (>= 0.3.0)
-      em-http-request (>= 0.3.0)
-      eventmachine (>= 0.12.0)
-      faye-websocket (>= 0.7.0)
-      multi_json (>= 1.0.0)
-      rack (>= 1.0.0)
-      websocket-driver (>= 0.3.0)
     faye-websocket (0.7.3)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.3.1)
@@ -123,8 +135,6 @@ GEM
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.0)
     polyglot (0.3.4)
-    private_pub (1.0.3)
-      faye
     puma (2.8.2)
       rack (>= 1.1, < 2.0)
     rack (1.5.2)
@@ -195,12 +205,12 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
-  faye
+  faye!
   jbuilder (~> 2.0)
   jquery-rails
   omniauth
   omniauth-salesforce
-  private_pub
+  private_pub!
   puma
   rails (= 4.1.0)
   restforce!

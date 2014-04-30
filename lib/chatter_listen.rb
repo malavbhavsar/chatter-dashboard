@@ -2,23 +2,20 @@ module ChatterListenEM
 
   def self.start(client)
     pushtopics = client.query('select Name from PushTopic').map(&:Name)
-    unless pushtopics.include?('AllAccounts')
+    unless pushtopics.include?('AllProxyFeedItem')
       client.create! 'PushTopic', {
-        ApiVersion: '23.0',
-        Name: 'AllAccounts',
-        Description: 'All Accounts records',
+        ApiVersion: '30.0',
+        Name: 'AllProxyFeedItem',
+        Description: 'All ProxyFeedItem',
         NotifyForOperations: 'All',
         NotifyForFields: 'All',
-        Query: "SELECT Id FROM Account"
+        Query: "SELECT Id, Body__c, CommentCount__c, LikeCount__c, Type__c, User__c from ProxyFeedItem__c"
       }
     end
-    Faye.logger = lambda { |m| puts m }
-    Restforce.log = true
     Thread.abort_on_exception = true
     Thread.new {
-      Thread.current[:name]  = "AllAccounts"
       EM.run do
-        client.subscribe 'AllAccounts' do |message|
+        client.subscribe 'AllProxyFeedItem' do |message|
           print "===================================="
           print "Recieved message"
           ap message

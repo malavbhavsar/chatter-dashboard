@@ -12,12 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require faye
 //= require private_pub
 //= require turbolinks
 //= require_tree .
-
-console.log("Hello");
-PrivatePub.subscribe("/messages/new", function(data, channel) {
-  alert(data.chat_message);
-  $("#chat").append(data.chat_message);
-});

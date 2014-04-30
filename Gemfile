@@ -37,7 +37,7 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+# Using customized version to fix issue #103 in restforce
 gem 'restforce', :git => 'git@github.com:malavbhavsar/restforce.git', :branch => 'patch-1'
 # Use omniauth for handlling OAuth with Salesforce
 gem 'omniauth'
@@ -50,11 +50,14 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
-# Add faye for pub/sub
-gem 'faye'
-# Running app on concurrent server
-gem 'private_pub'
-
+# Add faye for pub/sub, using customized version to aavoid problems from
+# issue 263 and other related issue
+gem 'faye', :git => 'git@github.com:faye/faye.git'
+# private_pub to easily do pub-sub with browser, using customized version 
+# to make sure that we get faye.js which is not packed when using faye gem
+# from master
+gem 'private_pub', :git => 'git@github.com:malavbhavsar/private_pub.git'
+# Puma for our main server concurrently
 gem 'puma'
-
+# Thin for running faye server
 gem 'thin'
